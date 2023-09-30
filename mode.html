@@ -1,0 +1,191 @@
+<html>
+<head>
+<center>
+<h2>Select Mode</h2>
+</center>
+<style>
+      div {
+        margin-bottom: 10px;
+      }
+      label {
+        display: inline-block;
+        width: 150px;
+     }
+	  .mode{
+            height: 320px;
+            width: 520px;
+            border:4px solid black;
+            margin-top: 40px;
+        }
+		
+		.box{
+        color: #fff;
+        padding: 20px;
+        display: none;
+        margin-top: 20px;
+    }
+		
+		.Flight{
+		 height: 320px;
+            width: 520px;
+            border:4px solid black;
+            margin-top: 40px;}
+		.Bus{
+		height: 320px;
+            width: 520px;
+            border:4px solid black;
+            margin-top: 40px;}
+		
+  .button {
+  background-color: yellow;
+  border: none;
+  color: black;
+  padding: 2.5px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+    </style>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+<script>
+function show1(){
+  document.getElementById('train').style.display ='none';
+}
+function show2(){
+  document.getElementById('bus').style.display = 'block';
+}
+</script>
+</head>
+<body>
+<center>
+<br>
+<input type="radio" name="Mode" value="Train" checked>Train
+<input type="radio" name="Mode" value="Bus" >Bus
+<input type="radio" name="Mode" value="Flight" >Flight
+</center>
+
+<center>
+
+<div id="train" class="mode">
+<center>
+
+
+<form method="get" action="" class="train">
+<br>
+<br>
+<div>
+<label for="from"><b>From:</label>
+<input type="text" name="name">
+<br>
+</div>
+<br>
+<div>
+<label for="to"><b>To:</label>
+<input type="text" name="age" min="18" max="100" >
+<br>
+</div>
+<br>
+<div>
+<label for="Travel Date"><b>Travel Date:</label>
+<input type="date" id="travel" name="travel">
+<br>
+</div>
+<br>
+<div>
+<label for="CLASS"><b>CLASS:</label>
+<select id="Selectclass" size="1" >
+<option>First Class</option>
+<option>2nd Seating</option>
+<option>Sleeper Class</option>
+<option>1st AC</option>
+<option>2nd AC</option>
+<option>3rd AC</option>
+</select>
+<br>
+</div>
+
+<center>
+<br>
+<div class="button">
+ <a href="" class="button">Next</a>
+</div>
+
+
+<div id="flight" class="mode">
+<center>
+
+<form method="get" action="" class="Flight">
+<br>
+<br>
+<div>
+<label for="from"><b>From:</label>
+<input type="text" name="name">
+<br>
+</div>
+<br>
+<div>
+<label for="to"><b>To:</label>
+<input type="text" name="age" min="18" max="100" >
+<br>
+</div>
+<br>
+<div>
+<label for="Travel Date"><b>Travel Date:</label>
+<input type="date" id="travel" name="travel">
+<br>
+</div>
+<br>
+<div>
+<label for="CLASS"><b>CLASS:</label>
+<select id="Selectclass" size="1" >
+<option>Economy</option>
+<option>Premium Economy</option>
+<option>Business Class</option>
+</select>
+<br>
+</div>
+<center>
+<br>
+<div class="button">
+ <a href="" class="button">Next</a>
+</div>
+
+
+
+<div id="Bus" class="mode">
+<br>
+<center>
+<form method="get" action="" class="Bus">
+<br>
+<br>
+<div>
+<label for="from"><b>From:</label>
+<input type="text" name="name">
+<br>
+</div>
+<br>
+<div>
+<label for="to"><b>To:</label>
+<input type="text" name="age" min="18" max="100" >
+<br>
+</div>
+<br>
+<div>
+<label for="Travel Date"><b>Travel Date:</label>
+<input type="date" id="travel" name="travel">
+<br>
+</div>
+<br>
+
+<center>
+
+<div class="button">
+ <a href="" class="button">Next</a>
+</div>
+
+</div>
+</body>
+</html>

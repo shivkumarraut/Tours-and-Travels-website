@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LoginandRegister</title>
+    <link rel="stylesheet" href="css/login.css">
+    <link href='https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+    <section class="container forms">
+        <div class="form login" name="login" >
+            <div class="form-content">
+                <h2 class="heading">Login</h2>
+				<form method="get" action="login.php" class="login">
+                    <div class="field input-field">
+                        <input type="email" placeholder="Email" name="email" id="email" class="input" >
+                    </div>
+                    <div class="field input-field">
+                        <input type="password" placeholder="Password" name="pass" id="pass" class="password" >
+                        <i class='bx bx-hide eye-icon'></i>
+                    </div>
+					
+                    </div>
+                    <div class="form-link">
+                        <a href="#" class="forgot-pass">Forgot password?</a>
+                    </div>
+                    <div class="field button-field">
+                        <button>Login</button>
+                    </div>
+                </form>
+
+                <div class="form-link">
+                    <span>Don't have an account? <a href="#" class="link signup-link">Signup</a></span>
+                </div>
+            </div>
+  
+        </div>
+        <div class="form signup" name="Signup" >
+            <div class="form-content">
+                <h2 class="heading">Registration</h2>
+                <form method="get" action="registration.php" class="register">
+                    <div class="field input-field">
+                        <input type="text" placeholder="Email" name="email" id="email" class="input" required>
+                    </div>
+                    <div class="field input-field">
+                        <input type="text" placeholder="phone" name="phone" id="phone" class="input" pattern=(\d{3})-?\s?(\d{3})-?\s?(\d{4})  required>
+                    </div>
+					<br>
+					<div class="select">
+                        <select name="Role" id="Role">
+							<option value="Admin">Admin</option>
+							<option value="Passenger">Passenger</option>
+						</select>
+                    </div>
+                    <div class="field input-field">
+                        <input type="password" placeholder="Password" name="cop" id="cop" class="password" required>
+                        <i class='bx bx-hide eye-icon'></i>
+                    </div>
+                    <div class="field input-field">
+                        <input type="password" placeholder="Confirm Password" class="password" name="conp" id="conp" required>
+                    </div>
+                    <div class="field button-field">
+                        <button>Signup</button>
+                    </div>
+                </form>
+
+                <div class="form-link">
+                    <span>Already have an account? <a href="#" class="link login-link">Login</a></span>
+                </div>
+            </div>         
+ </section>
+<script>
+const forms = document.querySelector(".forms"),
+    pwShowHide = document.querySelectorAll(".eye-icon"),
+    links = document.querySelectorAll(".link");
+
+pwShowHide.forEach(eyeIcon => {
+    eyeIcon.addEventListener("click", () => {
+        let pwFields = eyeIcon.parentElement.parentElement.querySelectorAll(".password");
+
+        pwFields.forEach(password => {
+            if (password.type === "password") {
+                password.type = "text";
+                eyeIcon.classList.replace("bx-hide", "bx-show");
+                return;
+            }
+            password.type = "password";
+            eyeIcon.classList.replace("bx-show", "bx-hide");
+        })
+
+    })
+})
+
+// Show LogIn and SignUp from
+links.forEach(link => {
+    link.addEventListener("click", e => {
+        e.preventDefault(); //preventing form submit
+        forms.classList.toggle("show-signup");
+    })
+})
+</script>
+</body>
+
+</html>

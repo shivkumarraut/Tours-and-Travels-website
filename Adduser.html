@@ -1,0 +1,24 @@
+<html>
+<head>
+<body>
+
+                <form method="get" action="adduser.php" class="register">
+                    <div class="field input-field">
+                        <input type="text" placeholder="Email" name="email" id="email" class="input" required>
+                    </div>
+                    <div class="field input-field">
+                        <input type="text" placeholder="phone" name="phone" id="phone" class="input" pattern=(\d{3})-?\s?(\d{3})-?\s?(\d{4})  required>
+                    </div>
+					<br>
+					<div class="select">
+                        <select name="Role" id="Role">
+
+							<option value="Passenger">Passenger</option>
+						</select>
+                 
+                    <div class="field button-field">
+                        <button>Add</button>
+                    </div>
+                </form>
+</body>
+</html>

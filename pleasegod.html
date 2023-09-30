@@ -1,0 +1,325 @@
+
+
+<html>
+<center>
+<h1> RESERVATION</h1>
+<head>
+
+<script type="text/javascript">
+var citiesByState = {
+Mumbai: ["Siddhivinayak","Gateway of India","Sanjay Gandhi National Park","Juhu Beach"],
+Goa:["Mangeshi Temple","Baga Beach","Church of Our lady of hope","Palolem Beach"],
+Hydrebad:["Charminar","Salar Jung Museum","Mecca Masjid","Paradise Resturant"],
+Delhi:["Qutub Minar","Swaminarayan Akshardham","Humayun's Tomb","Red Fort"],
+Banglore:["ISKCON Temple Banglore","Wonderla Amusement Park","BannerGhatta National Park","JawaharLal Nehru Planetarium"],
+Shimla:["Solang Valley","Manikaran Gurudwara","Beas River","Hidimba Devi Temple"],
+Chennai:["VGP snow kingdom","Kapaleeshwarar Temple","VGP Marine kingdom","Guindy Snake Park"],
+Rishikesh:["Triveni Ghat","Neer Garh Waterfall","Lakshman Jhula","Ram Jhula"],
+}
+function makeSubmenu(value) {
+if(value.length==0) document.getElementById("citySelect").innerHTML = "<option></option>";
+else {
+var citiesOptions = "";
+for(cityId in citiesByState[value]) {
+citiesOptions+="<option>"+citiesByState[value][cityId]+"</option>";
+}
+document.getElementById("citySelect").innerHTML = citiesOptions;
+}
+}
+function displaySelected() { var country = document.getElementById("countrySelect").value;
+var city = document.getElementById("citySelect").value;
+alert(country+"\n"+city);
+}
+function resetSelection() {
+document.getElementById("countrySelect").selectedIndex = 0;
+document.getElementById("citySelect").selectedIndex = 0;
+}
+</script>
+<script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+
+<script>
+$(document).ready(function(){
+    $('input[type="radio"]').click(function(){
+        var inputValue = $(this).attr("value");
+        var targetBox = $("." + inputValue);
+        $(".box").not(targetBox).hide();
+        $(targetBox).show();
+    });
+});
+</script>
+
+ <style type="text/css">
+  
+      .reservation{
+	  height:800px;
+       width: 520px;
+	  border:4px solid black;
+	  margin-top:20px;
+	  background:blue;
+	  }
+      div {
+        margin-bottom: 10px;
+      }
+      label {
+        display: inline-block;
+        width: 150px;
+     }
+	  .container{
+            height: 100px;
+            width: 500px;
+            
+            margin-top:15px;
+        }
+		.box{
+	display: none;
+     height: 200px;
+            width: 100px;
+            
+            margin-top: 20px;
+			
+    }
+  .button {
+  background-color: yellow;
+  border: none;
+  color: black;
+  padding: 2.5px 15px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 15px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+    </style>
+</style>
+
+</head>
+<body>
+<div class="reservation">
+<div class="container">
+<center>
+<form method="get" action="reservation.php" class="tour">
+
+<div>
+<label for="name">Name</label>
+<input type="text" name="name" id="name" required>
+<br>
+</div>
+<br>
+<div>
+<label for="age">Age</label>
+<input type="text" name="n1" id="n1" min="18" max="100" required>
+<br>
+</div>
+<br>
+<div>
+<label for="email">Email</label>
+<input type="text" name="email" id="email" pattern=[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$ required>
+<br>
+</div>
+<br>
+<div>
+<label for="Phone">Phone number</label>
+<input type="text" name="phone" id="phone" pattern=(\d{3})-?\s?(\d{3})-?\s?(\d{4}) required>
+<br>
+</div>
+<br>
+<div>
+<label for="Gender">Gender</label>
+<input type="radio" name="gender" id="gender" value="Male" checked required>Male
+<input type="radio" name="gender" id="gender" value="Female"  required>Female
+<br>
+</div>
+<br>
+<div>
+<label for="Package">Package Name:</label>
+<input type="text" name="package" id="package"required>
+<br>
+</div>
+<div>
+<label for="Select Tour">Select Tour</label>
+<select name="tour" id="countrySelect" size="1" onchange="makeSubmenu(this.value);finalCost();" required>
+<option value="" disabled selected>Choose State</option>
+<option>Mumbai</option>
+<option>Goa</option>
+<option>Hydrebad</option>
+<option>Delhi</option>
+<option>Banglore</option>
+<option>Shimla</option>
+<option>Chennai</option>
+<option>Rishikesh</option>
+</select>
+
+<select name="city" id="citySelect" size="1" required>
+<option value="" disabled selected>Choose City</option>
+<option></option>
+</select>
+</div>
+
+<div class="devimata">
+<br>
+     <label> Select Mode of Travels</label>
+	 <br>
+	 <br>
+    <div class="radio">
+        <label><input type="radio" name="moderadio" id="moderadio" value="train" required> Train</label>
+        <label><input type="radio" name="moderadio" id="moderadio" value="bus" required> Bus</label>
+        <label><input type="radio" name="moderadio" id="moderadio" value="flight" required>Flight</label>
+    </div>
+	
+<div class="aai">
+	
+<div class="train box">
+
+<br>
+
+<div>
+<label for="Travel Date"><b>Travel Date:</label>
+<input type="date" id="travel" name="travel"required>
+<br>
+</div>
+<br>
+<div>
+<label for="CLASS"><b>CLASS:</label>
+<select id="Selectclass" name="selectclass" size="1" required>
+<option>First Class</option>
+<option>2nd Seating</option>
+<option>Sleeper Class</option>
+<option>1st AC</option>
+<option>2nd AC</option>
+<option>3rd AC</option>
+</select>
+<br>
+</div>
+<br>
+<div>
+<label for="pass">Traveller Number:</label>
+
+<select name="traveller" id="traveller" onchange="finalCost()" required>
+  <option value="1">1 </option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+</select>
+</div>
+<br>
+</div>
+
+	
+<div class="bus box">
+<br>
+
+<div>
+<label for="Travel Date"><b>Travel Date:</label>
+<input type="date" id="travel" name="travel" required>
+<br>
+</div>
+<br>
+<div>
+<label for="pass">Traveller Number:</label>
+
+<select name="traveller" id="traveller" required>
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+</select>
+</div>
+<br>
+</div>
+
+
+
+	
+<div class="flight box">
+
+<br>
+
+<div>
+<label for="Travel Date"><b>Travel Date:</label>
+<input type="date" id="travel" name="travel" required>
+<br>
+</div>
+<br>
+<div>
+<label for="CLASS"><b>CLASS:</label>
+<select id="Selectclass" name="selectclass" size="1" required>
+<option>Economy</option>
+<option>Premium Economy</option>
+<option>Business Class</option>
+</select>
+<br>
+</div>
+<br>
+<div>
+<label for="pass">Traveller Number:</label>
+
+<select name="traveller" id="traveller" required>
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+</select>
+</div>
+</div>
+
+</div>
+</div>
+
+<div>
+<label for="roomtype">Room Type:</label>
+
+<select name="roomtype" id="roomtype" required>
+  <option value="Standard">Standard </option>
+  <option value="Deluxe">Deluxe</option>
+  <option value="Superior Deluxe">Superior Deluxe</option>
+</select>
+</div>
+
+<div>
+<label for="no_rooms">No of Room:</label>
+
+<select name="no_room" id="no_room" required>
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+</select>
+</div>
+
+<div>
+<label for="person">Number of Person:</label>
+
+<select name="person" id="person" required>
+  <option value="1">1</option>
+  <option value="2">2</option>
+  <option value="3">3</option>
+  <option value="4">4</option>
+</select>
+</div>
+
+<div>
+<label for="rest">Do you want to avail facilities:</label>
+
+<select name="travellers" id="travellers" required>
+  <option value="Yes">Yes</option>
+  <option value="No">No</option>
+</select>
+</div>
+<br>
+<div>
+<input type="Submit" Value="Confirm">
+
+<br>
+<br>
+<center>
+<div class="button">
+ <a href="modetour.html" class="button">Next&Payment</a>
+</div>
+</form>
+
+
+</div>
+</div>
+</body>
+</html>

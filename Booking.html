@@ -1,0 +1,124 @@
+
+
+<html>
+<center>
+<h1> Book Here</h1>
+<h2> Enter Details Here</h2>
+<head>
+
+<script type="text/javascript">
+var citiesByState = {
+Mumbai: ["Siddhivinayak","Gateway of India","Sanjay Gandhi National Park","Juhu Beach"],
+Goa:["Mangeshi Temple","Baga Beach","Church of Our lady of hope","Palolem Beach"],
+Hydrebad:["Charminar","Salar Jung Museum","Mecca Masjid","Paradise Resturant"],
+Delhi:["Qutub Minar","Swaminarayan Akshardham","Humayun's Tomb","Red Fort"],
+Banglore:["ISKCON Temple Banglore","Wonderla Amusement Park","BannerGhatta National Park","JawaharLal Nehru Planetarium"],
+Shimla:["Solang Valley","Manikaran Gurudwara","Beas River","Hidimba Devi Temple"],
+Chennai:["VGP snow kingdom","Kapaleeshwarar Temple","VGP Marine kingdom","Guindy Snake Park"],
+Rishikesh:["Triveni Ghat","Neer Garh Waterfall","Lakshman Jhula","Ram Jhula"],
+}
+function makeSubmenu(value) {
+if(value.length==0) document.getElementById("citySelect").innerHTML = "<option></option>";
+else {
+var citiesOptions = "";
+for(cityId in citiesByState[value]) {
+citiesOptions+="<option>"+citiesByState[value][cityId]+"</option>";
+}
+document.getElementById("citySelect").innerHTML = citiesOptions;
+}
+}
+function displaySelected() { var country = document.getElementById("countrySelect").value;
+var city = document.getElementById("citySelect").value;
+alert(country+"\n"+city);
+}
+function resetSelection() {
+document.getElementById("countrySelect").selectedIndex = 0;
+document.getElementById("citySelect").selectedIndex = 0;
+}
+</script>
+<style>
+ <style>
+ body{
+ background-color:aqua;}
+      div {
+        margin-bottom: 10px;
+      }
+      label {
+        display: inline-block;
+        width: 150px;
+     }
+	  .container{
+            height: 300px;
+            width: 500px;
+            border:3.5px solid black;
+            margin-top: 40px;
+        }
+    </style>
+</style>
+
+</head>
+<body>
+<div class="container">
+<center>
+<form method="get" action="" class="tour">
+<br>
+<br>
+<div>
+<label for="name">Name</label>
+<input type="text" name="name">
+<br>
+</div>
+<br>
+<div>
+<label for="age">Age</label>
+<input type="text" name="age" min="18" max="100" >
+<br>
+</div>
+<br>
+<div>
+<label for="email">Email</label>
+<input type="text" name="email" pattern=[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$>
+<br>
+</div>
+<br>
+<div>
+<label for="Phone">Phone number</label>
+<input type="text" name="password"  pattern=(\d{3})-?\s?(\d{3})-?\s?(\d{4})>
+<br>
+</div>
+<br>
+<div>
+<label for="Gender">Gender</label>
+<input type="radio" name="gender" value="Male" checked>Male
+<input type="radio" name="gender" value="Female" >Female
+<br>
+</div>
+<br>
+<div>
+<label for="Select Tour">Select Tour</label>
+<select id="countrySelect" size="1" onchange="makeSubmenu(this.value)">
+<option value="" disabled selected>Choose State</option>
+<option>Mumbai</option>
+<option>Goa</option>
+<option>Hydrebad</option>
+<option>Delhi</option>
+<option>Banglore</option>
+<option>Shimla</option>
+<option>Chennai</option>
+<option>Rishikesh</option>
+</select>
+
+<select id="citySelect" size="1" >
+<option value="" disabled selected>Choose City</option>
+<option></option>
+</select>
+</div>
+<br>
+<center>
+<div class="button">
+        <input type="button" onclick="login.html" class="btn btn-warning btn-lg" value="Click"/>
+</div>
+</form>
+</div>
+</body>
+</html>
